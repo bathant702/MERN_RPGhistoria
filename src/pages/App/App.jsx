@@ -6,9 +6,9 @@ import NewMoviePage from '../NewMoviePage/NewMoviePage';
 import MoviesIndexPage from '../MoviesIndexPage/MoviesIndexPage';
 import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
 //character pages
-import NewMoviePage from '../NewMoviePage/NewMoviePage';
-import MoviesIndexPage from '../MoviesIndexPage/MoviesIndexPage';
-import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
+import NewCharacterPage from '../NewCharacterPage/NewCharacterPage';
+import CharactersIndexPage from '../CharactersIndexPage/CharactersIndexPage';
+import CharacterDetailPage from '../CharacterDetailPage/CharacterDetailPage';
 //routes, states, nav, css
 import './App.css';
 import { useState } from 'react';
@@ -29,9 +29,9 @@ export default function App() {
         <Route path="/movies/new" element={<NewMoviePage />} />
         <Route path="/movies" element={<MoviesIndexPage />} />
         <Route path="/movies/:movieId" element={<MovieDetailPage />} />
-        <Route path="/movies/new" element={<NewMoviePage />} />
-        <Route path="/movies" element={<MoviesIndexPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailPage />} />
+        <Route path="/characters" element={<CharactersIndexPage />} />
+        <Route path="/characters/new" element={<NewCharacterPage />} />
+        <Route path="/characters/:characterId" element={<CharacterDetailPage />} />
       </Routes>
       </>
       :

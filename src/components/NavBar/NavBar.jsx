@@ -13,6 +13,10 @@ export default function NavBar({setUser, user}){
                 &nbsp; | &nbsp;
                 <Link to="/movies/new">Add a Film</Link>
                 &nbsp; | &nbsp;
+                <Link to="/characters">View Characters</Link>
+                &nbsp; | &nbsp;
+                <Link to="/characters/new">Add a Character</Link>
+                &nbsp; | &nbsp;
                 <span>Welcome, {user.name}</span>
                 &nbsp; | &nbsp;
                 &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>

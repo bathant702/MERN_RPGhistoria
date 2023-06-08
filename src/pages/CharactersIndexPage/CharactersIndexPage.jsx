@@ -2,7 +2,7 @@ import { moviesIndexRequest } from '../../utilities/movies-api';
 import { useEffect, useState } from 'react'
 import MoviesList from '../../components/MoviesList/MoviesList';
 
-export default function MoviesIndexPage(){
+export default function CharactersIndexPage(){
     const [movies, setMovies] = useState([])
     useEffect(()=>{
         console.log('loading...')
