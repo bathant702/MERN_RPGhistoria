@@ -1,26 +1,40 @@
 import { useRef, useState } from 'react';
-import { createMovieRequest} from '../../utilities/movies-api';
+import { createCharacterRequest } from '../../utilities/characters-api';
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function NewMovieForm(){
+export default function NewCharacterForm(){
     const navigate = useNavigate();
-    const titleRef = useRef('')
-    const releaseYearRef = useRef('')
-    const ratingRef = useRef('')
-    const nowShowingRef = useRef('')
+    const nameRef = useRef('')
+    const dateCreatedRef = useRef('')
+    const activeCharacterRef = useRef('')
+    const rpgRaceRef = useRef('')
+    const descriptionRef = useRef('')
+    const hpInitSpeedRef = useRef('')
+    const traitsRef = useRef('')
+    const skillsRef = useRef('')
+    const classAbilitiesRef = useRef('')
+    const featsMagicSpecRef = useRef('')
+    const gearRef = useRef('')
     const [error, setError] = useState('')
     async function handleSubmit(e){
         e.preventDefault()
         setError('')
-        const newMovie = {
-            title: titleRef.current.value,
-            releaseYear: releaseYearRef.current.value,
-            rating: ratingRef.current.value,
-            nowShowing: nowShowingRef.current.checked
+        const newCharacter = {
+            name: nameRef.current.value,
+            // dateCreated: dateCreatedRef.current.value,
+            // activeCharacter: activeCharacterRef.current.checked,
+            // race: rpgRaceRef.current.value,
+            // description: descriptionRef.current.value,
+            // hpInitSpeed: hpInitSpeedRef.current.value,
+            // traits: traitsRef.current.value,
+            // skills: skillsRef.current.value,
+            // classAbilities: classAbilitiesRef.current.value,
+            // featsMagicSpec: featsMagicSpecRef.current.value,
+            gear: gearRef.current.value
         }
         try{
-            const newMovieResponse = await createMovieRequest(newMovie)
-            navigate('/movies')
+            const newCharacterResponse = await createCharacterRequest(newCharacter)
+            navigate('/characters')
         }catch(err){
             setError(err)
         }
@@ -30,18 +44,29 @@ export default function NewMovieForm(){
         <>
             { error && <p>{JSON.stringify(error)}</p>}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title</label>
-                <input type="text" id="title" ref={titleRef} />
-                <label htmlFor="releaseYear">Release Year</label>
-                <input type="number" id="releaseYear" ref={releaseYearRef}/>
-                <label htmlFor="rating">Rating</label>
-                <select name="rating" id="rating" ref={ratingRef}>
-                    <option value="PG13">PG-13</option>
-                    <option value="R">R</option>
-                </select>
-                <label htmlFor="nowShowing">Now Showing?</label>
-                <input type="checkbox" id="nowShowing" ref={nowShowingRef}/>
-                <button>Create the Movie</button>
+            <label htmlFor='name'>Name: </label>
+                <input type='text' id="name" ref={nameRef} />
+                {/* <label htmlFor='dateCreated'>Date Created: </label>
+                <input type='number' id='dateCreated' ref={dateCreatedRef} />
+                <label htmlFor='activeCharacter'>Active Character: </label>
+                <input type='checkbox' id='activeCharacter' ref={activeCharacterRef} />
+                <label htmlFor='race'>Race: </label>
+                <input type='text' id='race' ref={rpgRaceRef} />
+                <label htmlFor='description'>Description: </label>
+                <input type='text' id='description' ref={descriptionRef} />
+                <label htmlFor='hpInitSpeed'>HP, Initiative, & Speed: </label>
+                <input type="text" id="hpInitSpeed" ref={hpInitSpeedRef} />
+                <label htmlFor="traits">Traits: </label>
+                <input type="text" id="traits" ref={traitsRef} />
+                <label htmlFor="skills">Skills: </label>
+                <input type="text" id="skills" ref={skillsRef} />
+                <label htmlFor='classAbilities'>Class Abilities: </label>
+                <input type="text" id="classAbilities" ref={classAbilitiesRef}/>
+                <label htmlFor='featsMagicSpec'>Feats, Magic, & Special Abilities: </label>
+                <input type="text" id="featsMagicSpec" ref={featsMagicSpecRef}/> */}
+                <label htmlFor='gear'>Gear & Items: </label>
+                <input type="text" id="gear" ref={gearRef}/>
+                <button>Create the Character</button>
             </form>
         </>
 

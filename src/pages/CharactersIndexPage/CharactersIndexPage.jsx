@@ -1,21 +1,23 @@
-import { moviesIndexRequest } from '../../utilities/movies-api';
+import { charactersIndexRequest } from '../../utilities/characters-api';
 import { useEffect, useState } from 'react'
-import MoviesList from '../../components/MoviesList/MoviesList';
+import CharactersList from '../../components/CharactersList/CharactersList';
 
 export default function CharactersIndexPage(){
-    const [movies, setMovies] = useState([])
+    const [characters, setCharacter] = useState([])
     useEffect(()=>{
         console.log('loading...')
-        async function getMovies(){
-            const movies = await moviesIndexRequest();
-            setMovies(movies)
+        async function getCharacters(){
+            const characters = await charactersIndexRequest();
+            setCharacter(characters)
+            console.log('character has been obtained')
         }
-        getMovies();
+        getCharacters();
     }, [])
     return(
         <>
         <h1>Character Index</h1>
-        <MoviesList movies={movies}></MoviesList>
+        <p>If you can see this, its just not displaying CharactersList</p>
+        <CharactersList characters={characters}></CharactersList>
         </>
     )
 }

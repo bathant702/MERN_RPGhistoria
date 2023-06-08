@@ -1,10 +1,10 @@
-import MoviesListItem from './MoviesListItem/MoviesListItem'
+import CharactersListItem from './CharactersListItem/CharactersListItem'
 
-export default function MoviesList({movies}){
-    const moviesComponents = movies.map(movie => <MoviesListItem key={movie._id} movie={movie}></MoviesListItem>)
+export default function CharactersList({characters}){
+    const charactersComponents = characters.map(character =><CharactersListItem key={character._id} character={character}></CharactersListItem>)
     return (
         <>
-            {moviesComponents}
+            {charactersComponents}
         </>
     )
 }

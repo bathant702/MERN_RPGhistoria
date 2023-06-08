@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
-export default function MoviesListItem({movie}){
+export default function CharactersListItem({character}){
     return(
         <>
         <p>
-            <Link to={`/movies/${movie._id}`}>
-                {movie.title}
+            <Link to={`/characters/${character._id}`}>
+                {character.name}
             </Link>
         </p>
         </>
