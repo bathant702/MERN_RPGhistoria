@@ -7,7 +7,6 @@ export async function charactersIndexRequest(){
 
 export async function createCharacterRequest(characterData){
     return sendRequest(BASE_URL, "POST", characterData)
-    console.log("Posting data from create")
 }
 
 export async function getCharacterRequest(characterId){

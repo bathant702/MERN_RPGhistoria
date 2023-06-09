@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
-import { createCharacterRequest } from '../../utilities/characters-api';
-import { useNavigate, useParams } from "react-router-dom";
+import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { updateCharacterRequest } from '../../../utilities/characters-api';
 
-export default function NewCharacterForm(){
+export default function EditCharacterForm({character, setCharacter, setEditFormIsOpen}){
     const navigate = useNavigate();
     const nameRef = useRef('')
     const dateCreatedRef = useRef('')
@@ -18,9 +18,8 @@ export default function NewCharacterForm(){
     const [error, setError] = useState('')
     async function handleSubmit(e){
         e.preventDefault()
-        setError('')
-        const newCharacter = {
-            name: nameRef.current.value,
+        const updatedCharacter = {
+            // name: nameRef.current.value,
             // dateCreated: dateCreatedRef.current.value,
             // activeCharacter: activeCharacterRef.current.checked,
             // race: rpgRaceRef.current.value,
@@ -30,23 +29,23 @@ export default function NewCharacterForm(){
             // skills: skillsRef.current.value,
             // classAbilities: classAbilitiesRef.current.value,
             // featsMagicSpec: featsMagicSpecRef.current.value,
-            gear: gearRef.current.value
+            gear: gearRef.current.value    
         }
         try{
-            const newCharacterResponse = await createCharacterRequest(newCharacter)
-            navigate('/characters')
+            const newCharacter = await updateCharacterRequest(character._id, updatedCharacter)
+            setCharacter(newCharacter)
+            setEditFormIsOpen(false)
         }catch(err){
-            setError(err)
+            setError("Bad Update, Man")
         }
-        
     }
-    return (
+    return(
         <>
-            { error && <p>{JSON.stringify(error)}</p>}
+        <h3>edit</h3>
+        { error && <p>{JSON.stringify(error)}</p>}
             <form onSubmit={handleSubmit}>
-            <label htmlFor='name'>Name: </label>
-                <input type='text' id="name" ref={nameRef} />
-                {/* <label htmlFor='dateCreated'>Date Created: </label>
+            {/* <input type='text' id="name" ref={nameRef} />
+                <label htmlFor='dateCreated'>Date Created: </label>
                 <input type='number' id='dateCreated' ref={dateCreatedRef} />
                 <label htmlFor='activeCharacter'>Active Character: </label>
                 <input type='checkbox' id='activeCharacter' ref={activeCharacterRef} />
@@ -54,7 +53,7 @@ export default function NewCharacterForm(){
                 <input type='text' id='race' ref={rpgRaceRef} /> */}
                 <label htmlFor='description'>Description: </label>
                 <input type='text' id='description' ref={descriptionRef} />
-                {/*<label htmlFor='hpInitSpeed'>HP, Initiative, & Speed: </label>
+                {/* <label htmlFor='hpInitSpeed'>HP, Initiative, & Speed: </label>
                 <input type="text" id="hpInitSpeed" ref={hpInitSpeedRef} />
                 <label htmlFor="traits">Traits: </label>
                 <input type="text" id="traits" ref={traitsRef} />
@@ -66,8 +65,8 @@ export default function NewCharacterForm(){
                 <input type="text" id="featsMagicSpec" ref={featsMagicSpecRef}/> */}
                 <label htmlFor='gear'>Gear & Items: </label>
                 <input type="text" id="gear" ref={gearRef}/>
-                <button>Create the Character</button>
+                <button>Edit Character</button>
             </form>
-        </>
+            </>
     )
 }

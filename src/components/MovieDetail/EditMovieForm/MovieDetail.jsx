@@ -1,6 +1,5 @@
 import { useState} from 'react'
 import EditMovieForm from './EditMovieForm/EditMovieForm'
-
 export default function MovieDetail({movie, handleDelete, setMovie}){
     const [editFormIsOpen, setEditFormIsOpen] = useState(false)
     function toggleEditForm(){

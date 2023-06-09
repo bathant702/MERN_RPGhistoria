@@ -1,34 +1,36 @@
-//
 import { useNavigate, useParams } from "react-router-dom";
-import { getMovieRequest, deleteMovieRequest } from "../../utilities/movies-api";
+// import { getMovieRequest, deleteMovieRequest } from "../../utilities/movies-api";
+import { getCharacterRequest, deleteCharacterRequest } from "../../utilities/characters-api";
 import { useEffect, useState } from 'react';
-import MovieDetail from "../../components/MovieDetail/MovieDetail";
+// import MovieDetail from "../../components/MovieDetail/MovieDetail";
+import CharacterDetail from "../../components/CharacterDetail/CharacterDetail";
+
 export default function CharacterDetailPage(){
-    let { movieId } = useParams();
-    const [movie, setMovie] = useState({})
+    let { characterId } = useParams();
+    const [character, setCharacter] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
     const navigate = useNavigate()
     useEffect(()=>{
-        async function getMovie(){
-            const movie = await getMovieRequest(movieId);
-            if(movie){
-                setMovie(movie)
+        async function getCharacter(){
+            const character = await getCharacterRequest(characterId);
+            if(character){
+                setCharacter(character)
                 setTimeout(()=>{
                     setLoading(false)
                 }, 1000)
             }else{
-                setError('No Movie Found')
+                setError('No Character Found')
                 setLoading(false)
             }
         }
-        getMovie()
+        getCharacter()
     }, [])
 
     async function handleDelete(e){
-        const deleteResponse = await deleteMovieRequest(movie._id);
+        const deleteResponse = await deleteCharacterRequest(character._id);
         if(deleteResponse.data === 'success'){
-            navigate('/movies')
+            navigate('/characters')
         }
     }
     return (
@@ -38,7 +40,7 @@ export default function CharacterDetailPage(){
         :
         error ? <p>{error}</p> 
         :
-        <MovieDetail movie={movie} handleDelete={handleDelete} setMovie={setMovie}></MovieDetail>
+        <CharacterDetail character={character} handleDelete={handleDelete} setCharacter={setCharacter}></CharacterDetail>
         }
         </>
     )

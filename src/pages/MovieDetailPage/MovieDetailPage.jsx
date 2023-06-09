@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getMovieRequest, deleteMovieRequest } from "../../utilities/movies-api";
 import { useEffect, useState } from 'react';
 import MovieDetail from "../../components/MovieDetail/MovieDetail";
+
 export default function MovieDetailPage(){
     let { movieId } = useParams();
     const [movie, setMovie] = useState({})

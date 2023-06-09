@@ -28,9 +28,9 @@ const characterSchema = new Schema({
       }],
     classAbilities: [{ type: String, ref: 'What are your class special abilities?'
       }],
-    featsMagicSpecials: [{ type: String, ref: 'Feats? Magic? Special abilities?'
+    featsMagicSpec: [{ type: String, ref: 'Feats? Magic? Special abilities?'
       }],
-    armorWeaponsItems: [{ type: String, ref: 'Any armor? Weapons? Items?'
+    gear: [{ type: String, ref: 'Any armor? Weapons? Items?'
       }], 
     diceStat: { type: String, enum: ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
       },
