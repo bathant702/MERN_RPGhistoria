@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { updateCharacterRequest } from '../../../utilities/characters-api';
 import { updateSessionRequest } from '../../../utilities/sessions-api';
 
 export default function EditSessionForm({session, setSession, setEditFormIsOpen}){
