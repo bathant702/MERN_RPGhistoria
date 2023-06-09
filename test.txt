@@ -2,3 +2,7 @@ testing purposes
 
 testing trigger
 test test
+
+Procfile
+web: gunicorn MERN_RPGhistoria.wsgi
+release: npm run build
