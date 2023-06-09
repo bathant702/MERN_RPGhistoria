@@ -1,5 +1,5 @@
 {
-  "name": "mern-infrastructure",
+  "name": "rpg-historia",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -42,9 +42,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ],
+    "engines": {
+      "node":"18.14.0"},
+    "heroku-postbuild": [
+      "npm run build"
     ]
-  },
-  "heroku-postbuild": [
-    "npm run build"
-  ]
+  }
 }
