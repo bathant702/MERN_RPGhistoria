@@ -1,14 +1,14 @@
 //login and home page
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
-//movie pages
-import NewMoviePage from '../NewMoviePage/NewMoviePage';
-import MoviesIndexPage from '../MoviesIndexPage/MoviesIndexPage';
-import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
 //character pages
 import NewCharacterPage from '../NewCharacterPage/NewCharacterPage';
 import CharactersIndexPage from '../CharactersIndexPage/CharactersIndexPage';
 import CharacterDetailPage from '../CharacterDetailPage/CharacterDetailPage';
+//rpg sessions pages
+import NewSessionPage from '../NewSessionPage/NewSessionPage';
+import SessionsIndexPage from '../SessionsIndexPage/SessionsIndexPage';
+import SessionDetailPage from '../SessionDetailPage/SessionDetailPage';
 //routes, states, nav, css
 import './App.css';
 import { useState } from 'react';
@@ -26,12 +26,12 @@ export default function App() {
       <NavBar setUser={ setUser } user={user}></NavBar>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movies/new" element={<NewMoviePage />} />
-        <Route path="/movies" element={<MoviesIndexPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailPage />} />
         <Route path="/characters" element={<CharactersIndexPage />} />
         <Route path="/characters/new" element={<NewCharacterPage />} />
         <Route path="/characters/:characterId" element={<CharacterDetailPage />} />
+        <Route path="/sessions" element={<SessionsIndexPage />} />
+        <Route path="/sessions/new" element={<NewSessionPage />} />
+        <Route path="/sessions/:sessionId" element={<SessionDetailPage />} />
       </Routes>
       </>
       :

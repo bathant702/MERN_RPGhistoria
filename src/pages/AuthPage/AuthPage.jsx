@@ -5,7 +5,7 @@ export default function AuthPage({setUser}){
     const [userWantsLogin, setUserWantsLogin] = useState(true)
     return(
         <>
-        <h1>Auth page</h1>
+        <h1>Login</h1>
         { userWantsLogin ?
         <>
                 <LoginForm setUser={setUser}></LoginForm>

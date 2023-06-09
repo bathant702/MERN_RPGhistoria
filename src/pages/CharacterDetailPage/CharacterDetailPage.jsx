@@ -1,8 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-// import { getMovieRequest, deleteMovieRequest } from "../../utilities/movies-api";
 import { getCharacterRequest, deleteCharacterRequest } from "../../utilities/characters-api";
 import { useEffect, useState } from 'react';
-// import MovieDetail from "../../components/MovieDetail/MovieDetail";
 import CharacterDetail from "../../components/CharacterDetail/CharacterDetail";
 
 export default function CharacterDetailPage(){
@@ -35,7 +33,7 @@ export default function CharacterDetailPage(){
     }
     return (
         <>
-        <h1>Here's a character</h1>
+        <h1>{character.name} Details</h1>
         { loading ? <p>Loading....</p>
         :
         error ? <p>{error}</p> 

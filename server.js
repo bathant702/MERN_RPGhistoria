@@ -21,8 +21,8 @@ app.use(checkToken)
 //   next()
 // })
 app.use('/api/users', require('./routes/api/users'))
-app.use('/api/movies', require('./routes/api/movies'))
 app.use('/api/characters', require('./routes/api/characters'))
+app.use('/api/sessions', require('./routes/api/sessions'))
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

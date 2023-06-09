@@ -15,8 +15,8 @@ export default function CharactersIndexPage(){
     }, [])
     return(
         <>
-        <h1>Character Index</h1>
-        <p>If you can see this, its just not displaying CharactersList</p>
+        <h1>Your Characters</h1>
+        <p>Please choose a role:</p>
         <CharactersList characters={characters}></CharactersList>
         </>
     )

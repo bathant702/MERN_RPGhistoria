@@ -9,15 +9,15 @@ export default function NavBar({setUser, user}){
     return(
         <>
             <nav>
-                <Link to="/sessions">View Sessions</Link>
+            <span>Welcome, {user.name}</span>
                 &nbsp; | &nbsp;
-                <Link to="/sessions/new">Add a RPG Session</Link>
+                <Link to="/sessions">View your RPG Sessions</Link>
                 &nbsp; | &nbsp;
-                <Link to="/characters">View Characters</Link>
+                <Link to="/sessions/new">Add an RPG Session</Link>
+                &nbsp; | &nbsp;
+                <Link to="/characters">View your Characters</Link>
                 &nbsp; | &nbsp;
                 <Link to="/characters/new">Add a Character</Link>
-                &nbsp; | &nbsp;
-                <span>Welcome, {user.name}</span>
                 &nbsp; | &nbsp;
                 &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
             </nav>
