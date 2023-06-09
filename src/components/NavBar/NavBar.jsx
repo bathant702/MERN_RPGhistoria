@@ -9,10 +9,6 @@ export default function NavBar({setUser, user}){
     return(
         <>
             <nav>
-                <Link to="/movies">View Movies</Link>
-                &nbsp; | &nbsp;
-                <Link to="/movies/new">Add a Film</Link>
-                &nbsp; | &nbsp;
                 <Link to="/sessions">View Sessions</Link>
                 &nbsp; | &nbsp;
                 <Link to="/sessions/new">Add a RPG Session</Link>
