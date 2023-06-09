@@ -44,7 +44,7 @@
       "last 1 safari version"
     ],
     "engines": {
-      "node":"18.14.0"},
+      "node":"18.x"},
     "heroku-postbuild": [
       "npm run build"
     ]
